@@ -1,0 +1,104 @@
+<div *ngIf="screen==0">
+    <form [formGroup]="form" (ngSubmit)="crear()">
+        <ul>
+            <li>
+                <label>Titulo</label>
+                <input formControlName="titulo" type="text" required="true">
+                <div *ngIf="titulo.invalid" class="alert alert-danger">
+                    <div class="requerido">
+                        Se requiere titulo
+                    </div>
+                </div>
+
+                <label>Estado</label>
+                <select formControlName="estado" type="select">
+                    <option value="0">Seleccione</option>
+                    <option value="1">Iniciado</option>
+                    <option value="2">En proceso</option>
+                    <option value="3">Terminada</option>
+                </select>
+            </li>
+
+            <li>
+                <div class="form-group">
+                    <label for="descripcion">Descripcion</label>
+                    <textarea class="form-control" id="descripcion" rows="3" formControlName="descripcion"></textarea>
+                  </div>
+            </li>
+
+            <li>
+                <button type="submit" [disabled]="titulo.invalid || estado.invalid || descripcion.invalid" >Actualizar</button>
+            </li>
+        </ul>
+    </form>
+</div>
+
+<!--
+<div *ngIf="screen==1">
+    <tr>
+        <th class="lista">Tareas iniciadas</th>
+        <th class="lista">Tareas en proceso</th>
+        <th id="termindas">Tareas terminadas</th>
+    </tr>
+    <tr>
+        <th><li *ngFor="let item of listaInicio"> <button class="bInicio" (click)="editar(item)"> {{item}} </button> <button type="button" (click)="eliminar(item)" class="eliminar"> x</button> </li></th>
+        <th><li *ngFor="let item of listaProceso"><button class="bProceso">{{item}} </button></li></th>
+        <th><li *ngFor="let item of listaTerminado"><button class="bTerminado">{{item}}</button></li></th>
+    </tr>
+   
+
+    <button type="button" (click)="adicionar()">Adicionar</button>
+</div>-->
+
+<!--
+<div id="editar" *ngIf="showEditar">
+    <form [formGroup]="form" (ngSubmit)="actualizar()">
+        <ul>
+            <li>
+                <label>Titulo</label>
+                <input formControlName="titulo" type="text" required>
+                <div *ngIf="titulo.invalid" class="alert alert-danger">
+                    <div *ngIf="titulo.errors.required" class="requerido">
+                        Se requiere titulo
+                    </div>
+                </div>
+
+                <label>Estado</label>
+                <select formControlName="estado" type="select">
+                    <option value="0">Seleccione</option>
+                    <option value="1">Iniciado</option>
+                    <option value="2">En proceso</option>
+                    <option value="3">Terminada</option>
+                </select>
+            </li>
+
+            <li>
+                <button type="submit" [disabled]="titulo.invalid" [disabled]="estado.invalid">Actualizar</button>
+            </li>
+        </ul>
+    </form>
+</div>
+-->
+
+
+
+<!--
+<section *ngIf="screen==0">
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</section>
+-->
