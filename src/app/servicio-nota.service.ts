@@ -8,7 +8,7 @@ import {Nota} from "./nota";
 })
 export class ServicioNotaService {
 
-  url="";
+  url="http://localhost/";
   constructor(private http:HttpClient) { }
 
   consultarNotas():Observable<any>{
@@ -16,6 +16,8 @@ export class ServicioNotaService {
   }
 
   guardarDatos(lista:Array<Nota>):Observable<any>{
+    console.log("Esto llega al servicio");
+    console.log(lista);
     return this.http.post(`${this.url}guardar.php`, JSON.stringify(lista));
   }
 }

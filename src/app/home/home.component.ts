@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl,FormBuilder,FormGroup,Validators} from "@angular/forms"
 import { Nota } from '../nota';
+import {ServicioNotaService} from "../servicio-nota.service";
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,11 @@ export class HomeComponent implements OnInit {
   estado:AbstractControl;
   descripcion:AbstractControl;
   //ABIERTO==0, PROCESO==1, CERRADO==2
+
   aux:Array<Nota>=[];
 
   form:FormGroup;
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder, private servicio:ServicioNotaService) {
     this.form= this.fb.group({
       titulo:["",[Validators.required]],
       estado:["",[Validators.required]],
@@ -25,7 +27,7 @@ export class HomeComponent implements OnInit {
 
     this.titulo = this.form.controls["titulo"];
     this.estado = this.form.controls["estado"];
-    this.descripcion = this.form.controls["descripcion"]
+    this.descripcion = this.form.controls["descripcion"];
    }
 
   
@@ -34,15 +36,17 @@ export class HomeComponent implements OnInit {
 
   crear(){
     let lista:Array<Nota>=[{
-      titulo:this.titulo.value,
-      estado:this.estado.value,
-      descripcion:this.descripcion.value
+      titulo:this.form.get("titulo")?.value,
+      estado:this.form.get("estado")?.value,
+      descripcion:this.form.get("descripcion")?.value
       }
     ];
-
+    console.log(this.form.get("titulo")?.value);
+    //console.log(this.titulo.value + this.estado.value + this.descripcion.value);
     console.log(lista);
-
-    
+    this.servicio.guardarDatos(lista).subscribe(datos=>{
+      console.log(datos);
+    });
   }
 
 }
