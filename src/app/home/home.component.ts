@@ -42,10 +42,10 @@ export class HomeComponent implements OnInit {
       }
     ];
     console.log(this.form.get("titulo")?.value);
-    //console.log(this.titulo.value + this.estado.value + this.descripcion.value);
+    
     console.log(lista);
     this.servicio.guardarDatos(lista).subscribe(datos=>{
-      console.log(datos);
+      
     });
   }
 
