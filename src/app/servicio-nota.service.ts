@@ -21,4 +21,10 @@ export class ServicioNotaService {
     console.log(JSON.stringify(lista));
     return this.http.post(`${this.url}guardar.php`, JSON.stringify(lista));
   }
+
+  actualizarNota(lista:Array<Nota>):Observable<any>{
+    return this.http.post(`${this.url}actualizar.php`, JSON.stringify(lista));
+  }
+
+  
 }

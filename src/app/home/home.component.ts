@@ -65,4 +65,8 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  editar(){
+
+  }
+
 }

@@ -1,4 +1,4 @@
-<div *ngIf="screen==0">
+<div *ngIf="screen==0" id="wea">
     <form [formGroup]="form" (ngSubmit)="crear()">
         <ul>
             <li>
@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <label for="descripcion">Descripcion</label>
                     <textarea class="form-control" id="descripcion" rows="3" formControlName="descripcion"></textarea>
-                  </div>
+                </div>
             </li>
 
             <li>
