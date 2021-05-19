@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   //ABIERTO==0, PROCESO==1, CERRADO==2
 
   aux:Array<Nota>=[];
+  aux2:Array<Nota>=[];
 
   form:FormGroup;
   constructor(public fb: FormBuilder, private servicio:ServicioNotaService) {
@@ -32,6 +33,21 @@ export class HomeComponent implements OnInit {
 
   
   ngOnInit(): void {
+    this.servicio.consultarNotas().subscribe(datos=>{
+      for(let i=0;i<datos.length;i++){
+        this.aux2.push(datos[i]);
+      }
+      console.log(datos);
+    });
+  }
+
+  consultarNotas(){
+    this.servicio.consultarNotas().subscribe(datos=>{
+      for(let i=0;i<datos.length;i++){
+        this.aux2.push(datos[i]);
+      }
+      console.log(datos);
+    });
   }
 
   crear(){
