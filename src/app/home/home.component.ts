@@ -66,7 +66,18 @@ export class HomeComponent implements OnInit {
   }
 
   editar(){
-
+    let lista:Array<Nota>=[{
+      titulo:this.form.get("titulo")?.value,
+      estado:this.form.get("estado")?.value,
+      descripcion:this.form.get("descripcion")?.value
+      }
+    ];
+    console.log(this.form.get("titulo")?.value);
+    
+    console.log(lista);
+    this.servicio.guardarDatos(lista).subscribe(datos=>{
+      
+    });
   }
 
 }
