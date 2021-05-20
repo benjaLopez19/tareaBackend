@@ -36,6 +36,7 @@ export class HomeComponent implements OnInit {
    }
 
   
+
   ngOnInit(): void {
     this.servicio.consultarNotas().subscribe(datos=>{
       for(let i=0;i<datos.length;i++){
@@ -68,6 +69,7 @@ export class HomeComponent implements OnInit {
     this.servicio.guardarDatos(lista).subscribe(datos=>{
       
     });
+    this.screen=1;
   }
 
   editar(){
@@ -85,4 +87,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  eliminar(){
+
+  }
 }

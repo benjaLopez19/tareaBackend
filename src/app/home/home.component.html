@@ -1,45 +1,11 @@
-<!--<div *ngIf="screen==0" id="wea">
-    <form [formGroup]="form" (ngSubmit)="crear()">
-        <ul>
-            <li>
-                <label>Titulo</label>
-                <input formControlName="titulo" type="text" required="true">
-                <div *ngIf="titulo.invalid" class="alert alert-danger">
-                    <div class="requerido">
-                        Se requiere titulo
-                    </div>
-                </div>
-
-                <label>Estado</label>
-                <select formControlName="estado" type="select">
-                    <option value="0">Seleccione</option>
-                    <option value="1">Iniciado</option>
-                    <option value="2">En proceso</option>
-                    <option value="3">Terminada</option>
-                </select>
-            </li>
-
-            <li>
-                <div class="form-group">
-                    <label for="descripcion">Descripcion</label>
-                    <textarea class="form-control" id="descripcion" rows="3" formControlName="descripcion"></textarea>
-                </div>
-            </li>
-
-            <li>
-                <button type="submit" [disabled]="titulo.invalid || estado.invalid || descripcion.invalid" >Actualizar</button>
-            </li>
-        </ul>
-    </form>
-</div> -->
-
-
-<div class='container'>
+<div *ngIf="screen==0" id="wea">
+<div class='container-fluid' id='vista'>
     <form [formGroup]="form" (ngSubmit)='crear()'>
-    <div class='row'><label for='tituloPagina'>Titulo</label></div>
+    <div class='row'><label class='tituloPagina' for='tituloPagina'>Mis Notas</label></div>
+    <div class='row'id='subtitulo'>Ingrese sus anotaciones y el estando en el que se encuentran </div>
     <div class='row'>
         <div class='col-8'>
-            <div *ngIf="screen==0" id="wea">
+
                 
  
                         <!--pegado del de arriba-->
@@ -65,7 +31,7 @@
                         
                         <button class="btn btn-primary" type="submit"[disabled]="titulo.invalid || estado.invalid || descripcion.invalid" >Actualizar</button>     
                         <!--boton-->  
-            </div>
+
          </div>
         <!--select-->
          <div class='col-4'>    
@@ -83,30 +49,50 @@
     </div>
     </form>
 </div>
+</div>
 
 <!--ARRIBA LA PANTALLA DE ADICIONAR, ABAJO LA DE MOSTRAR-->
 
-<!--
 <div *ngIf="screen==1">
+    <div class='container-fluid' id ='vista'>
+        <div class='row' >
+            <div class ='col-3'id ='filaMostrar'>
+                Tareas Iniciadas
+            </div>
+            <div class ='col-3'id ='filaMostrar'>
+                Tareas En Proceso
+            </div>
+            <div class ='col-3'id ='filaMostrar'>
+                Tareas Terminadas
+            </div>
+        </div>
+        <div class ='row' id='botonMostrar'>
+            <div class='col-4'>
+                <button class="btn btn-primary" type='buttom' (click)='crear()'>Actualizar</button>
+            </div>
+
+        </div>
+    </div>
+<!--</div>-->
+
+<!--<div *ngIf="screen==1">
     <tr>
         <th class="lista">Tareas iniciadas</th>
         <th class="lista">Tareas en proceso</th>
         <th id="termindas">Tareas terminadas</th>
     </tr>
     <tr>
-        <th><li *ngFor="let item of listaInicio"> <button class="bInicio" (click)="editar(item)"> {{item}} </button> <button type="button" (click)="eliminar(item)" class="eliminar"> x</button> </li></th>
-        <th><li *ngFor="let item of listaProceso"><button class="bProceso">{{item}} </button></li></th>
-        <th><li *ngFor="let item of listaTerminado"><button class="bTerminado">{{item}}</button></li></th>
+        <th><li *ngFor="let item of aIniciado"> <button class="bInicio" (click)="editar(item)"> {{item}} </button> <button type="button" (click)="eliminar(item)" class="eliminar"> x</button> </li></th>
+        <th><li *ngFor="let item of aProceso"><button class="bProceso">{{item}} </button></li></th>
+        <th><li *ngFor="let item of aTerminado"><button class="bTerminado">{{item}}</button></li></th>
     </tr>
-   
-
-    <button type="button" (click)="adicionar()">Adicionar</button>
+    <button class="btn btn-primary" type='buttom' (click)='crear()'>Actualizar</button>
 </div>-->
 
 <!-- ARRIBA LA DE MOSTRAR, ABAJO EDITAR-->
 
-<!--
-<div id="editar" *ngIf="showEditar">
+
+<!--<div id="editar" *ngIf="showEditar">
     <form [formGroup]="form" (ngSubmit)="actualizar()">
         <ul>
             <li>
@@ -132,8 +118,8 @@
             </li>
         </ul>
     </form>
-</div>
--->
+</div>-->
+
 
 
 
