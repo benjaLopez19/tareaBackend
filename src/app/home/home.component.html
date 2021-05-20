@@ -1,4 +1,4 @@
-<div *ngIf="screen==0" id="wea">
+<!--<div *ngIf="screen==0" id="wea">
     <form [formGroup]="form" (ngSubmit)="crear()">
         <ul>
             <li>
@@ -31,7 +31,60 @@
             </li>
         </ul>
     </form>
+</div> -->
+
+
+<div class='container'>
+    <form [formGroup]="form" (ngSubmit)='crear()'>
+    <div class='row'><label for='tituloPagina'>Titulo</label></div>
+    <div class='row'>
+        <div class='col-8'>
+            <div *ngIf="screen==0" id="wea">
+                
+ 
+                        <!--pegado del de arriba-->
+                        <div class='form-floating'>    
+                            
+                            <input formControlName="titulo" type="text" required="true" class='form-control' id='floatingText' placeholder="titulo">
+                            <label for='floatingText'>titulo de nota</label>
+                            <div *ngIf="titulo.invalid" class="alert alert-danger">
+                                <div class="requerido">
+                                    Se requiere titulo
+                                </div>
+                            </div>
+                        <!--pegado del de arriba-->
+                        </div>
+                        <!--descripcion-->
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="descripcion"></textarea>
+                            <label for="floatingTextarea">Descripcion</label>
+                          </div>
+                        <!--descripcion-->
+                        <!--boton-->
+                        <!--<button type="submit" [disabled]="titulo.invalid || estado.invalid || descripcion.invalid" >Actualizar</button>-->
+                        
+                        <button class="btn btn-primary" type="submit"[disabled]="titulo.invalid || estado.invalid || descripcion.invalid" >Actualizar</button>     
+                        <!--boton-->  
+            </div>
+         </div>
+        <!--select-->
+         <div class='col-4'>    
+            <div class="form-floating">
+                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="estado">
+                  <option selected>Seleccione</option>
+                  <option value="1">Iniciado</option>
+                  <option value="2">En Proceso</option>
+                  <option value="3">Terminado</option>
+                </select>
+                <label for="floatingSelect">Estado</label>
+              </div>
+        </div>
+        <!--select-->
+    </div>
+    </form>
 </div>
+
+<!--ARRIBA LA PANTALLA DE ADICIONAR, ABAJO LA DE MOSTRAR-->
 
 <!--
 <div *ngIf="screen==1">
@@ -49,6 +102,8 @@
 
     <button type="button" (click)="adicionar()">Adicionar</button>
 </div>-->
+
+<!-- ARRIBA LA DE MOSTRAR, ABAJO EDITAR-->
 
 <!--
 <div id="editar" *ngIf="showEditar">

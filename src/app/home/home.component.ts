@@ -13,10 +13,14 @@ export class HomeComponent implements OnInit {
   titulo:AbstractControl;
   estado:AbstractControl;
   descripcion:AbstractControl;
-  //ABIERTO==0, PROCESO==1, CERRADO==2
+  //ABIERTO==1, PROCESO==2, CERRADO==3
 
   aux:Array<Nota>=[];
   aux2:Array<Nota>=[];
+
+  aIniciado:Array<Nota>=[];
+  aProceso:Array<Nota>=[];
+  aTerminado:Array<Nota>=[];
 
   form:FormGroup;
   constructor(public fb: FormBuilder, private servicio:ServicioNotaService) {
@@ -38,6 +42,7 @@ export class HomeComponent implements OnInit {
         this.aux2.push(datos[i]);
       }
       console.log(datos);
+      console.log(this.aux2);
     });
   }
 
