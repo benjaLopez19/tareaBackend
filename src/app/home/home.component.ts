@@ -78,6 +78,7 @@ export class HomeComponent implements OnInit {
     this.servicio.guardarDatos(lista).subscribe(datos=>{
       
     });
+    this.consultarNotas();
     this.screen=1;
   }
 

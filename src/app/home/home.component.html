@@ -59,7 +59,7 @@
             <div class ='col-3'id ='filaMostrar'>
                 Tareas Iniciadas
                 
-                <li *ngFor="let item of aIniciado"> <button class="bInicio"> {{item}} </button></li>
+                <li *ngFor="let item of aIniciado"> <button class="bInicio"> {{item["titulo"]}} {{item["descripcion"]}} </button></li>
             </div>
             <div class ='col-3'id ='filaMostrar'>
                 Tareas En Proceso
