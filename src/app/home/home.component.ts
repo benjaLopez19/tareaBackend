@@ -39,11 +39,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.servicio.consultarNotas().subscribe(datos=>{
-      for(let i=0;i<datos.length;i++){
-        this.aux2.push(datos[i]);
-      }
-      console.log(datos);
-      console.log(this.aux2);
+      this.aIniciado=datos[0];
+      this.aProceso=datos[1];
+      this.aTerminado=datos[2];
+
+      console.log(this.aIniciado);
+      console.log(this.aProceso);
+      console.log(this.aTerminado);
+
+      console.log(this.aIniciado[0]["titulo"]);
     });
   }
 
