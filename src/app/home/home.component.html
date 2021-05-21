@@ -59,23 +59,76 @@
             <div class ='col-3'id ='filaMostrar'>
                 Tareas Iniciadas
                 
-                <li *ngFor="let item of aIniciado"> <button class="bInicio"> {{item["titulo"]}} {{item["descripcion"]}} </button></li>
+                <li *ngFor="let item of aIniciado"> <button class="bInicio" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button></li>
             </div>
             <div class ='col-3'id ='filaMostrar'>
                 Tareas En Proceso
-                <li *ngFor="let item of aProceso"><button class="bProceso">{{item}} </button></li>
+                <li *ngFor="let item of aProceso"><button class="bProceso">{{item["titulo"]}} <br> {{item["descripcion"]}} </button></li>
             </div>
             <div class ='col-3'id ='filaMostrar'>
                 Tareas Terminadas
-                <li *ngFor="let item of aTerminado"><button class="bTerminado">{{item}}</button></li>
+                <li *ngFor="let item of aTerminado"><button class="bTerminado">{{item["titulo"]}} <br> {{item["descripcion"]}}</button></li>
             </div>
         </div>
         
     </div>
     <footer>
-        <button class="btn btn-primary" type='buttom' (click)='adicionar()'>Adicionar</button>
+        <button class="btn btn-primary" type='button' (click)="adicionar()">Adicionar</button>
     </footer>
 </div>
+<!-- PANTALLA DE EDICION -->
+<div *ngIf="screen==2" id="wea">
+    <div class='container-fluid' id='vista'>
+        <form [formGroup]="form" (ngSubmit)='actualizar()'>
+        <div class='row'><label class='tituloPagina' for='tituloPagina'>Mis Notas</label></div>
+        <div class='row'id='subtitulo'>Ingrese sus anotaciones y el estando en el que se encuentran </div>
+        <div class='row'>
+            <div class='col-8'>
+    
+                    
+     
+                            <!--pegado del de arriba-->
+                            <div class='form-floating'>    
+                                
+                                <input formControlName="titulo" type="text" required="true" class='form-control' id='floatingText' placeholder="titulo">
+                                <label for='floatingText'>titulo de nota</label>
+                                <div *ngIf="titulo.invalid" class="alert alert-danger">
+                                    <div class="requerido">
+                                        Se requiere titulo
+                                    </div>
+                                </div>
+                            <!--pegado del de arriba-->
+                            </div>
+                            <!--descripcion-->
+                            <div class="form-floating" id="cajaTexto">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="descripcion"></textarea>
+                                <label for="floatingTextarea">Descripcion</label>
+                              </div>
+                            <!--descripcion-->
+                            <!--boton-->
+                            <!--<button type="submit" [disabled]="titulo.invalid || estado.invalid || descripcion.invalid" >Actualizar</button>-->
+                            
+                            <button class="btn btn-primary" type="submit"[disabled]="titulo.invalid || estado.invalid || descripcion.invalid" >Actualizar</button>     
+                            <!--boton-->  
+    
+             </div>
+            <!--select-->
+             <div class='col-4'>    
+                <div class="form-floating">
+                    <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="estado">
+                      <option selected disabled>Seleccione</option>
+                      <option value="1">Iniciado</option>
+                      <option value="2">En Proceso</option>
+                      <option value="3">Terminado</option>
+                    </select>
+                    <label for="floatingSelect">Estado</label>
+                  </div>
+            </div>
+            <!--select-->
+        </div>
+        </form>
+    </div>
+    </div>
     
 <!--</div>-->
 

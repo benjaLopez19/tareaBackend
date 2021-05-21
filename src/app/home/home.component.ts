@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   aux:Array<Nota>=[];
   aux2:Array<Nota>=[];
+  nota:Nota | undefined;
 
   aIniciado:Array<Nota>=[];
   aProceso:Array<Nota>=[];
@@ -79,30 +80,48 @@ export class HomeComponent implements OnInit {
       
     });
     this.consultarNotas();
+    this.limpiar();
     this.screen=1;
   }
 
-  editar(){
+  editar(item:Nota){
+    this.screen=2;
+    console.log(item);
+    this.nota=item;
+
+    console.log("AQUI ESTA NOTA\n");
+    console.log(this.nota);
+  }//editar asigna
+  
+  adicionar(){
+    this.screen=0;
+  }
+
+  actualizar(){
     let lista:Array<Nota>=[{
       titulo:this.form.get("titulo")?.value,
       estado:this.form.get("estado")?.value,
       descripcion:this.form.get("descripcion")?.value
       }
     ];
-    console.log(this.form.get("titulo")?.value);
-    
+    lista[1]=<Nota>this.nota;
+    console.log("AQUI VA LISTA DE ACTUALIZAR\n");
     console.log(lista);
-    this.servicio.guardarDatos(lista).subscribe(datos=>{
+    //item nuevo lista[0], item viejo lista[1]
+    //this.servicio.guardarDatos(lista).subscribe(datos=>{
       
-    });
+    //});
+    
   }
-  adicionar(){
+
+  limpiar(){
     this.titulo.setValue("");
     this.descripcion.setValue("");
     this.estado.setValue("Selected");
     this.screen=0;
     console.log("toy siendo apretado");
   }
+
   eliminar(){
 
   }
