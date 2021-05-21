@@ -90,7 +90,13 @@ export class HomeComponent implements OnInit {
       
     });
   }
-
+  adicionar(){
+    this.titulo.setValue("");
+    this.descripcion.setValue("");
+    this.estado.setValue("Selected");
+    this.screen=0;
+    console.log("toy siendo apretado");
+  }
   eliminar(){
 
   }

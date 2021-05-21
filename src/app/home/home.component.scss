@@ -8,11 +8,12 @@
     margin-bottom: 5%;
 }
 #subtitulo{
+    text-align: center;
     color:#3586E8;
     font-size:larger;
-    text-align: center;
     font: oblique bold 120% cursive;
     margin-bottom: 5%;
+    margin-left: 25%;
 }
 /*#vista{
     background-color: rgb(138, 242, 194);
@@ -24,5 +25,13 @@
     padding: 1%;
     margin: 1%;
     border: 1px solid black;
+    text-align: center;
+}
+#cajaTexto{
+    margin-top:5%;
+    margin-right:5%;
+    margin-bottom: 5%;
+}
+#footer{
     text-align: center;
 }

@@ -21,7 +21,7 @@
                         <!--pegado del de arriba-->
                         </div>
                         <!--descripcion-->
-                        <div class="form-floating">
+                        <div class="form-floating" id="cajaTexto">
                             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="descripcion"></textarea>
                             <label for="floatingTextarea">Descripcion</label>
                           </div>
@@ -37,7 +37,7 @@
          <div class='col-4'>    
             <div class="form-floating">
                 <select class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName="estado">
-                  <option selected>Seleccione</option>
+                  <option selected disabled>Seleccione</option>
                   <option value="1">Iniciado</option>
                   <option value="2">En Proceso</option>
                   <option value="3">Terminado</option>
@@ -58,21 +58,25 @@
         <div class='row' >
             <div class ='col-3'id ='filaMostrar'>
                 Tareas Iniciadas
+                
+                <li *ngFor="let item of aIniciado"> <button class="bInicio"> {{item}} </button></li>
             </div>
             <div class ='col-3'id ='filaMostrar'>
                 Tareas En Proceso
+                <li *ngFor="let item of aProceso"><button class="bProceso">{{item}} </button></li>
             </div>
             <div class ='col-3'id ='filaMostrar'>
                 Tareas Terminadas
+                <li *ngFor="let item of aTerminado"><button class="bTerminado">{{item}}</button></li>
             </div>
         </div>
-        <div class ='row' id='botonMostrar'>
-            <div class='col-4'>
-                <button class="btn btn-primary" type='buttom' (click)='crear()'>Actualizar</button>
-            </div>
-
-        </div>
+        
     </div>
+    <footer>
+        <button class="btn btn-primary" type='buttom' (click)='adicionar()'>Adicionar</button>
+    </footer>
+</div>
+    
 <!--</div>-->
 
 <!--<div *ngIf="screen==1">
