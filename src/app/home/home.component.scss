@@ -27,6 +27,14 @@
     border: 1px solid black;
     text-align: center;
 }
+#filaMostrar2{
+    text-align: center;
+    padding: 1%;
+    margin: 1%;
+    color:#3586E8;
+    font-size:larger;
+    font: oblique bold 120% cursive;
+}
 #cajaTexto{
     margin-top:5%;
     margin-right:5%;
@@ -34,4 +42,13 @@
 }
 #footer{
     text-align: center;
+}
+#iniciado{
+    background-color : #0AB734;
+}
+#proceso{
+    background-color : #BEC30F;
+}
+#terminado{
+    background-color:#C00B0B;
 }

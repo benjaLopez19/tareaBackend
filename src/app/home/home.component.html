@@ -55,19 +55,40 @@
 
 <div *ngIf="screen==1">
     <div class='container-fluid' id ='vista'>
+        <div class="row">
+            <div class= "col-3" id ="filaMostrar2">Tareas Iniciadas</div>
+            <div class= "col-3" id ="filaMostrar2">Tareas En Proceso</div>
+            <div class= "col-3" id ="filaMostrar2">Tareas Terminadas</div>
+        </div>
+        
         <div class='row' >
             <div class ='col-3'id ='filaMostrar'>
-                Tareas Iniciadas
                 
-                <li *ngFor="let item of aIniciado"> <button class="bInicio" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button></li>
+                <div class="btn-group-vertical">
+                    <div *ngFor="let item of aIniciado" class="btn-group" role="group" aria-label="Iniciado">
+                        <button id="iniciado"class="btn btn-secondary"type="button" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button>
+                        <button id="iniciado"type="button" class="btn btn-secondary">X</button>
+                    </div>
+                </div>    
+                <!--<li *ngFor="let item of aIniciado"> <button class="bInicio" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button></li>-->
             </div>
             <div class ='col-3'id ='filaMostrar'>
-                Tareas En Proceso
-                <li *ngFor="let item of aProceso"><button class="bProceso">{{item["titulo"]}} <br> {{item["descripcion"]}} </button></li>
+                <div class="btn-group-vertical">
+                    <div *ngFor="let item of aProceso" class="btn-group" role="group" aria-label="Iniciado">
+                        <button id="proceso"class="btn btn-secondary"type="button" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button>
+                        <button id="proceso"type="button" class="btn btn-secondary">X</button>
+                    </div>
+                </div> 
+                <!--<li *ngFor="let item of aProceso"><button class="bProceso">{{item["titulo"]}} <br> {{item["descripcion"]}} </button></li>-->
             </div>
             <div class ='col-3'id ='filaMostrar'>
-                Tareas Terminadas
-                <li *ngFor="let item of aTerminado"><button class="bTerminado">{{item["titulo"]}} <br> {{item["descripcion"]}}</button></li>
+                <div class="btn-group-vertical">
+                    <div *ngFor="let item of aTerminado" class="btn-group" role="group" aria-label="Iniciado">
+                        <button id="terminado"class="btn btn-secondary"type="button" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button>
+                        <button id="terminado"type="button" class="btn btn-secondary">X</button>
+                    </div>
+                </div> 
+                <!--<li *ngFor="let item of aTerminado"><button class="bTerminado">{{item["titulo"]}} <br> {{item["descripcion"]}}</button></li>-->
             </div>
         </div>
         
@@ -81,8 +102,8 @@
 <div *ngIf="screen==2" id="wea">
     <div class='container-fluid' id='vista'>
         <form [formGroup]="form" (ngSubmit)='actualizar()'>
-        <div class='row'><label class='tituloPagina' for='tituloPagina'>Mis Notas</label></div>
-        <div class='row'id='subtitulo'>Ingrese sus anotaciones y el estando en el que se encuentran </div>
+        <div class='row'><label class='tituloPagina' for='tituloPagina'>Actualizar notas</label></div>
+        <div class='row'id='subtitulo'>Ingrese la informacion para actualizar la nota </div>
         <div class='row'>
             <div class='col-8'>
     
