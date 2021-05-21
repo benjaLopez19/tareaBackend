@@ -86,11 +86,7 @@ export class HomeComponent implements OnInit {
 
   editar(item:Nota){
     this.screen=2;
-    console.log(item);
     this.nota=item;
-
-    console.log("AQUI ESTA NOTA\n");
-    console.log(this.nota);
   }//editar asigna
   
   adicionar(){
@@ -105,13 +101,12 @@ export class HomeComponent implements OnInit {
       }
     ];
     lista[1]=<Nota>this.nota;
-    console.log("AQUI VA LISTA DE ACTUALIZAR\n");
-    console.log(lista);
-    //item nuevo lista[0], item viejo lista[1]
-    //this.servicio.guardarDatos(lista).subscribe(datos=>{
+
+    this.servicio.actualizarNota(lista).subscribe(datos=>{
       
-    //});
-    
+    });
+
+    this.screen=1;
   }
 
   limpiar(){

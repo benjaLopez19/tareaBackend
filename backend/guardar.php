@@ -10,8 +10,6 @@
     //var_dump($info);
     $estado = $aux[0]["estado"];
     echo $estado;
-    //$estado = 1;
-    //$archivo = fopen("datos.json","w");
 
     switch($estado){
         case 1:
