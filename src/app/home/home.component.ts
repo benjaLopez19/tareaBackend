@@ -106,9 +106,13 @@ export class HomeComponent implements OnInit {
     this.servicio.eliminarNota(lista).subscribe(datos=>{
     });
     this.consultarNotas();
-    this.screen=0;
-    this.screen=1;
+ 
+    this.screen=10;
     
   }
 
+  aceptar(){
+    this.screen=1;
+
+  }
 }
