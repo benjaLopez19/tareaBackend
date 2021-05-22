@@ -67,7 +67,7 @@
                 <div class="btn-group-vertical">
                     <div *ngFor="let item of aIniciado" class="btn-group" role="group" aria-label="Iniciado">
                         <button id="iniciado"class="btn btn-secondary"type="button" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button>
-                        <button id="iniciado"type="button" class="btn btn-secondary">X</button>
+                        <button id="iniciado"type="button" class="btn btn-secondary" (click)="eliminar(item)">X</button>
                     </div>
                 </div>    
                 <!--<li *ngFor="let item of aIniciado"> <button class="bInicio" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button></li>-->
@@ -76,7 +76,7 @@
                 <div class="btn-group-vertical">
                     <div *ngFor="let item of aProceso" class="btn-group" role="group" aria-label="Iniciado">
                         <button id="proceso"class="btn btn-secondary"type="button" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button>
-                        <button id="proceso"type="button" class="btn btn-secondary">X</button>
+                        <button id="proceso"type="button" class="btn btn-secondary" (click)="eliminar(item)">X</button>
                     </div>
                 </div> 
                 <!--<li *ngFor="let item of aProceso"><button class="bProceso">{{item["titulo"]}} <br> {{item["descripcion"]}} </button></li>-->
@@ -84,8 +84,8 @@
             <div class ='col-3'id ='filaMostrar'>
                 <div class="btn-group-vertical">
                     <div *ngFor="let item of aTerminado" class="btn-group" role="group" aria-label="Iniciado">
-                        <button id="terminado"class="btn btn-secondary"type="button" (click)="editar(item)"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button>
-                        <button id="terminado"type="button" class="btn btn-secondary">X</button>
+                        <button id="terminado"class="btn btn-secondary"type="button"> {{item["titulo"]}} <br> {{item["descripcion"]}} </button>
+                        <button id="terminado"type="button" class="btn btn-secondary" (click)="eliminar(item)">X</button>
                     </div>
                 </div> 
                 <!--<li *ngFor="let item of aTerminado"><button class="bTerminado">{{item["titulo"]}} <br> {{item["descripcion"]}}</button></li>-->

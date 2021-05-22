@@ -16,14 +16,15 @@ export class ServicioNotaService {
   }
 
   guardarDatos(lista:Array<Nota>):Observable<any>{
-    console.log("Esto llega al servicio");
-    console.log(lista);
-    console.log(JSON.stringify(lista));
     return this.http.post(`${this.url}guardar.php`, JSON.stringify(lista));
   }
 
   actualizarNota(lista:Array<Nota>):Observable<any>{
     return this.http.post(`${this.url}actualizar.php`, JSON.stringify(lista));
+  }
+
+  eliminarNota(lista:Array<Nota>):Observable<any>{
+    return this.http.post(`${this.url}eliminar.php`, JSON.stringify(lista));
   }
 
   

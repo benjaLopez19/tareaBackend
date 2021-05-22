@@ -39,17 +39,6 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.servicio.consultarNotas().subscribe(datos=>{
-      this.aIniciado=datos[0];
-      this.aProceso=datos[1];
-      this.aTerminado=datos[2];
-
-      console.log(this.aIniciado);
-      console.log(this.aProceso);
-      console.log(this.aTerminado);
-
-      console.log(this.aIniciado[0]["titulo"]);
-    });
   }
 
   consultarNotas(){
@@ -57,12 +46,6 @@ export class HomeComponent implements OnInit {
       this.aIniciado=datos[0];
       this.aProceso=datos[1];
       this.aTerminado=datos[2];
-
-      console.log(this.aIniciado);
-      console.log(this.aProceso);
-      console.log(this.aTerminado);
-
-      console.log(this.aIniciado[0]["titulo"]);
     });
   }
 
@@ -73,9 +56,6 @@ export class HomeComponent implements OnInit {
       descripcion:this.form.get("descripcion")?.value
       }
     ];
-    console.log(this.form.get("titulo")?.value);
-    
-    console.log(lista);
     this.servicio.guardarDatos(lista).subscribe(datos=>{
       
     });
@@ -92,7 +72,7 @@ export class HomeComponent implements OnInit {
   adicionar(){
     this.screen=0;
   }
-
+ 
   actualizar(){
     let lista:Array<Nota>=[{
       titulo:this.form.get("titulo")?.value,
@@ -105,7 +85,8 @@ export class HomeComponent implements OnInit {
     this.servicio.actualizarNota(lista).subscribe(datos=>{
       
     });
-
+    this.limpiar();
+    this.consultarNotas();
     this.screen=1;
   }
 
@@ -114,10 +95,20 @@ export class HomeComponent implements OnInit {
     this.descripcion.setValue("");
     this.estado.setValue("Selected");
     this.screen=0;
-    console.log("toy siendo apretado");
   }
 
-  eliminar(){
+  eliminar(item:Nota){
+    console.log(item);
+    let lista:Array<Nota>=[];
+    lista.push(item);
+    console.log(lista);
 
+    this.servicio.eliminarNota(lista).subscribe(datos=>{
+    });
+    this.consultarNotas();
+    this.screen=0;
+    this.screen=1;
+    
   }
+
 }
